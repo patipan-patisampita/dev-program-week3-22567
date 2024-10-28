@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:week2/card_demo.dart';
 import 'package:week2/column_page.dart';
 import 'package:week2/list_view_menu.dart';
+import 'package:week2/my_card.dart';
 import 'package:week2/row_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -80,6 +81,18 @@ class HomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const CardDemo(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.card_travel),
+              title: const Text('My Card'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyCard(),
                   ),
                 );
               },
