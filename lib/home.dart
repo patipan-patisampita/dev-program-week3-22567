@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:week2/card_demo.dart';
 import 'package:week2/column_page.dart';
 import 'package:week2/list_view_menu.dart';
 import 'package:week2/row_page.dart';
@@ -67,6 +68,18 @@ class HomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ListViewMenu(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.badge),
+              title: const Text('Card demo'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CardDemo(),
                   ),
                 );
               },
