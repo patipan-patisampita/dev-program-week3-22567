@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
 
+class ListMenu {
+  final String? title;
+  final IconData? icon;
+  final Color? bkColor;
+  const ListMenu({this.title, this.icon, this.bkColor});
+}
+
+List<ListMenu> menus = [
+  const ListMenu(title: "MENU-1", icon: Icons.person, bkColor: Colors.green),
+  const ListMenu(title: "MENU-2", icon: Icons.person_add, bkColor: Colors.blue),
+  const ListMenu(title: "MENU-3", icon: Icons.power_off, bkColor: Colors.red),
+  const ListMenu(title: "MENU-4", icon: Icons.wifi, bkColor: Colors.orange),
+  const ListMenu(title: "MENU-5", icon: Icons.block, bkColor: Colors.purple),
+];
+
 class MyCard extends StatelessWidget {
   const MyCard({super.key});
 
@@ -13,19 +28,20 @@ class MyCard extends StatelessWidget {
       body: Container(
         child: GridView.count(
           crossAxisCount: 3,
-          children: List.generate(5, (index) {
+          children: List.generate(menus.length, (index) {
             return Card(
+              color: menus[index].bkColor,
               margin: const EdgeInsets.all(12.0),
               child: InkWell(
                 onTap: () {
-                  debugPrint("MyCard-1");
+                  debugPrint("${menus[index].title}");
                 },
-                child: const Center(
+                child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.home, size: 40, color: Colors.blueAccent),
-                      Text("Home", style: TextStyle(fontSize: 15.0, color: Colors.black)),
+                      Icon(menus[index].icon, size: 40, color: Colors.white),
+                      Text("${menus[index].title}", style: const TextStyle(fontSize: 15.0, color: Colors.white)),
                     ],
                   ),
                 ),
